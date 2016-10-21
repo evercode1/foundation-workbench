@@ -74,16 +74,11 @@ class SocialAppBuilder
         $this->fileWritePaths['OwnsRecord'] = base_path() . '/app/Http/AuthTraits/OwnsRecord.php';
 
 
-        // Auth Views
 
-        $this->fileWritePaths['Login'] = base_path() . '/resources/views/auth/login.blade.php';
-        $this->fileWritePaths['Register'] = base_path() . '/resources/views/auth/register.blade.php';
-        $this->fileWritePaths['Email'] = base_path() . '/resources/views/auth/passwords/email.blade.php';
 
         // component
 
         $this->fileWritePaths['MarketingImageGrid'] = base_path() . '/resources/assets/js/components/MarketingImageGrid.vue';
-        $this->fileWritePaths['UserGrid'] = base_path() . '/resources/assets/js/components/UserGrid.vue';
 
         // components
 
@@ -104,6 +99,7 @@ class SocialAppBuilder
         $this->fileWritePaths['ProfileController'] = base_path() . '/app/Http/Controllers/ProfileController.php';
         $this->fileWritePaths['SettingsController'] = base_path() . '/app/Http/Controllers/SettingsController.php';
         $this->fileWritePaths['UserController'] = base_path() . '/app/Http/Controllers/UserController.php';
+
 
         // .env
 
@@ -152,7 +148,7 @@ class SocialAppBuilder
         $this->fileWritePaths['DataQuery'] = base_path() . '/Queries/GridQueries/Contracts/DataQuery.php';
         $this->fileWritePaths['GridQuery'] = base_path() . '/Queries/GridQueries/GridQuery.php';
         $this->fileWritePaths['MarketingImageQuery'] = base_path() . '/Queries/GridQueries/MarketingImageQuery.php';
-        $this->fileWritePaths['UserQuery'] = base_path() . '/Queries/GridQueries/UserQuery.php';
+
 
         // Requests
 
@@ -162,11 +158,11 @@ class SocialAppBuilder
 
         // Routes
 
-        $this->fileAppendPaths['routes'] = base_path() . '/routes/web.php';
+        $this->fileWritePaths['routes'] = base_path() . '/routes/web.php';
 
         // Traits
 
-        $this->fileWritePaths['ModelTrait'] = base_path() . '/app/Traits/HasModelTrait.php';
+        $this->fileWritePaths['HasModelTrait'] = base_path() . '/app/Traits/HasModelTrait.php';
         $this->fileWritePaths['ManagesImages'] = base_path() . '/app/Traits/ManagesImages.php';
         $this->fileWritePaths['ShowsImages'] = base_path() . '/app/Traits/ShowsImages.php';
 
@@ -179,8 +175,8 @@ class SocialAppBuilder
 
         // auth
 
-        $this->fileAppendPaths['AuthLogin'] = base_path() . '/resources/views/auth/login.blade.php';
-        $this->fileAppendPaths['AuthRegister'] = base_path() . '/resources/views/auth/register.blade.php';
+        $this->fileAppendPaths['Login'] = base_path() . '/resources/views/auth/login.blade.php';
+        $this->fileAppendPaths['Register'] = base_path() . '/resources/views/auth/register.blade.php';
 
         // errors
 
@@ -210,8 +206,8 @@ class SocialAppBuilder
 
         // passwords
 
-        $this->fileAppendPaths['PasswordsEmail'] = base_path() . '/resources/views/auth/passwords/email.blade.php';
-        $this->fileAppendPaths['PasswordsReset'] = base_path() . '/resources/views/auth/passwords/reset.blade.php';
+        $this->fileAppendPaths['Email'] = base_path() . '/resources/views/auth/passwords/email.blade.php';
+        $this->fileAppendPaths['Reset'] = base_path() . '/resources/views/auth/passwords/reset.blade.php';
 
         // profile
 
