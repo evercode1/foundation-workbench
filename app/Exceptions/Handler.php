@@ -42,9 +42,58 @@ class Handler extends ExceptionHandler
      * @param  \Exception  $exception
      * @return \Illuminate\Http\Response
      */
-    public function render($request, Exception $exception)
+    public function render($request, Exception $e)
     {
-        return parent::render($request, $exception);
+
+        switch($e){
+
+            case ($e instanceof ModelNotFoundException):
+
+                return $this->renderException($e);
+                break;
+
+
+            case ($e instanceof NotFoundHttpException):
+
+                return $this->renderException($e);
+                break;
+
+            case ($e instanceof PaymentDeclinedException):
+
+                return $this->renderException($e);
+                break;
+
+            default:
+
+                return parent::render($request, $e);
+
+        }
+    }
+
+    protected function renderException($e)
+    {
+
+        switch ($e) {
+
+            case ($e instanceof ModelNotFoundException):
+                return response()->view('errors.404', compact('e'), 404);
+                break;
+
+            case ($e instanceof NotFoundHttpException):
+
+                return response()->view('errors.404', compact('e'), 404);
+                break;
+
+            case ($e instanceof PaymentDeclinedException):
+
+                return response()->view('errors.payment-declined', compact('e'));
+                break;
+
+            default:
+                return (new SymfonyDisplayer(config('app.debug')))
+                    ->createResponse($e);
+
+        }
     }
 
     /**

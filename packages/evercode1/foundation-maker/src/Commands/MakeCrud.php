@@ -47,6 +47,15 @@ class MakeCrud extends Command
     public function handle(CrudBuilder $crud)
     {
 
+        if($this->argument('ModelName') == 'User'){
+
+            $this->error('Oops, Can\'t do this on User!');
+
+            return;
+
+
+        }
+
 
         if ( $crud->makeCrudFiles($this->argument()) ) {
 

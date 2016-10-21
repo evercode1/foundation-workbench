@@ -78,6 +78,26 @@ trait RemovesFiles
         $this->extractFromFiles['Relationship'] = base_path('app/'. $this->modelName . '.php');
     }
 
+    private function setExceptionPaths()
+    {
+
+        if (file_exists(base_path('resources/views/errors/' . $this->view .'.blade.php'))){
+
+            $this->unlinkFiles['exception'] = base_path('app/Exceptions/' . $this->exceptionName .'Exception.php');
+            $this->unlinkFiles['view'] = base_path('resources/views/errors/' . $this->view .'.blade.php');
+
+
+        } else {
+
+            $this->unlinkFiles['exception'] = base_path('app/Exceptions/' . $this->exceptionName .'Exception.php');
+
+
+
+        }
+
+
+    }
+
 
     private function setViewPaths(){
 
@@ -109,7 +129,6 @@ trait RemovesFiles
     }
 
 
-
     private function deleteFiles()
     {
 
@@ -120,9 +139,13 @@ trait RemovesFiles
             unlink($file);
         }
 
-        $this->extractMethodsFromFiles();
+        if ($this->extractFromFiles){
 
-        //call delete each crud from trait
+            $this->extractMethodsFromFiles();
+
+        }
+
+
 
         return $this;
 

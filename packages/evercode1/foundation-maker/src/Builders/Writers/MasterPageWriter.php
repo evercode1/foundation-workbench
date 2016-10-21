@@ -17,13 +17,13 @@ class MasterPageWriter
     }
 
 
-    Public function writeEachMasterFile($masterPageName, $appName, array $files)
+    Public function writeEachMasterFile($masterPageName, $appName, $navType, array $files)
     {
 
 
         foreach ($files as $fileName => $filePath) {
 
-            $txt = $this->builder->getContentFromTemplate($masterPageName, $appName, $fileName);
+            $txt = $this->builder->getContentFromTemplate($masterPageName, $appName, $navType, $fileName);
 
             $handle = fopen($filePath, "w");
 

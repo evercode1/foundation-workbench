@@ -6,7 +6,7 @@
 
 **FoundationMaker** is a code generator for use with the Laravel PHP framework (5.3 and up) Artisan command line tool.
 
-FoundationMaker adds 16 new artisan commands, providing ready-made templates for CRUD generation, Views and Datagrids, with ajax-powered search, column sorts and pagination.   You can create, migrate and test a foundation of code with crud and views in under a minute.  You can also make your own custom templates and tokens for use with FoundationMaker.
+FoundationMaker adds 17 new artisan commands, providing ready-made templates for CRUD generation, Views and Datagrids, with ajax-powered search, column sorts and pagination.   You can create, migrate and test a foundation of code with crud and views in under a minute.  You can also make your own custom templates and tokens for use with FoundationMaker.
 
 Help **[Support FoundationMaker](#support-foundationmaker)**.  
 
@@ -46,7 +46,7 @@ With the **[make:foundation](#makefoundation)** command, create a code foundatio
 
 ![](vue-index.png)
 
-You also get create, edit, and show views, instantly.  Here is what the create view looks like:
+You also get the create, edit, and show views, instantly.  Here is what the create view looks like:
 
 ![basic create view](basic-create.png)
 
@@ -56,13 +56,15 @@ With the **[make:templates](#maketemplates)** command, you can easily modify the
 
 ## FoundationMaker Commands
 
-FoundationMaker will install 16 artisan commands.
+FoundationMaker will install 17 artisan commands.
 
-8 make commands:
+10 make commands:
 
 * **[make:assets](#makeassets)**
 * **[make:child-of](#makechild-of)**
 * **[make:crud](#makecrud)**
+* **[make:exception](#makeexception)**
+* **[make:exception-handler](#makeexception-handler)**
 * **[make:foundation](#makefoundation)**
 * **[make:master](#makemaster)**
 * **[make:parent-child](#makeparent-child)**
@@ -72,9 +74,9 @@ FoundationMaker will install 16 artisan commands.
 
 8 remove commands:
 
-* **[remove:assets](#removeassets)**
 * **[remove:child-of](#removechild-of)**
 * **[remove:crud](#removecrud)**
+* **[remove:exception](#removeexception)**
 * **[remove:foundation](#removefoundation)**
 * **[remove:master](#removemaster)**
 * **[remove:parent-child](#removeparent-child)**
@@ -304,11 +306,13 @@ You can use your own master page, if you choose, but it’s best to work with th
 Now we're ready to try the **[make:foundation](#makefoundation)** command.  We’ll use an example model named Widget.  So let's create a Widget foundation for our Widget model with the following command:
 
 ```
-php artisan make:foundation Widget master
+php artisan make:foundation Widget
 
 ```
 
-Obviously, Widget is the name of the model we want to create. This is followed by master, which is the name of our master page.  We have the option to put on a third parameter, ‘Slug’, which will include slugs in the views, but we are not doing that for this example.
+Obviously, Widget is the name of the model we want to create. We did not supply a second argument, so it will default to ‘master,’ which is the name of our master page.  We have the option to put on a third parameter, ‘Slug’, which will include slugs in the views, but we are not doing that for this example.
+
+If you want to include the third argument, then you must also supply the second argument, se the **[make:foundation](#makefoundation)** command for details.
 
 After the command runs, we're ready to migrate up to our db.  Before you migrate, this is where you can add additional columns for the DB, if you like.  To keep it simple, let's just migrate what we already have:
 
@@ -418,10 +422,10 @@ The make:assets command supplies you with everything you need to run the **[make
 FoundationMaker's make:master command creates a layouts folder and places a master page and related files in it.
 
 ```
-php artisan make:master {MasterName} {AppName=Demo}
+php artisan make:master {MasterName=master} {AppName=Demo}
 ```
 
-The second parameter is optional and will default to Demo.
+The first and second arguments are optional and will default to master and Demo respectively.
 
 You supply the command with two arguments, the name you want for your master page and the name of your application.  For example, if we wanted our master page to be called master and our app name was MyProject:
 
@@ -429,6 +433,7 @@ You supply the command with two arguments, the name you want for your master pag
 php artisan make:master master MyProject
 
 ```
+If you want to specify the 2nd argument for project name, then you need to specify the master page name in the first argument.
 
 This will create the following:
 
@@ -503,7 +508,7 @@ The make views lets you quickly scaffold views for create, show, edit, and index
 The make:views command has  the following arguments:
 
 ```
-php artisan make:views {ModelName} {MasterPageName} {Slug=false} 
+php artisan make:views {ModelName} {MasterPageName=master} {Slug=false} 
 
 ```
 The last argument is optional and indicates whether or not you want slugs, and this should match the choice you made when you ran make:crud.
@@ -518,11 +523,12 @@ So for a make:views example, if you had a model named Widget, and you  had a mas
 named master.blade.php, you may the following:
 
 ```
-php artisan make:views Widget master
+php artisan make:views Widget
 
 ```
 
-In the example above, we tell it the model name, 'Widget' and the master page name 'master.’  Since we didn’t want the slugs, we can simply leave that off the command, it will default to false.
+In the example above, we tell it the model name, 'Widget' and we default the master page to the name 'master.’  Since we didn’t want the slugs, we can simply leave that off the command, it will default to false.
+If you want to give a value of ‘Slug’ for Slug, then you also need to supply the third argument for the name of the master page.
 
 Please remember to run gulp after both the **[make:vies](#makeviews)** and the **[make:assets](#makeassets)** commands.
 
@@ -533,7 +539,7 @@ If you wish to manipulate the templates being used by FoundationMaker, please ru
 The make:foundation command has the following arguments:
 
 ```
-php artisan make:foundation {ModelName} {MasterPageName} {Slug=false}
+php artisan make:foundation {ModelName} {MasterPageName=master} {Slug=false}
 
 ```
 
@@ -542,11 +548,20 @@ The last argument is optional and indicates the slug option to show slugs on the
 Let's look at a typical example.  If you wanted to create a model named Widget without slugs, and you had a master page named master.blade.php, you may do the following:
 
 ```
-php artisan make:foundation Widget master
+php artisan make:foundation Widget
  
 ```
 
-You can also use the optional argument of ‘Slug.’  Adding slug will create slugs for your show view. 
+The views would extend layouts.master, since we default to a master page named ‘master.’
+
+If you want to give a value of ‘Slug’ for Slug, then you also need to supply the second argument for the name of the master page, like so:
+
+```
+php artisan make:foundation Widget master Slug
+
+```
+
+Adding slug will create slugs for your show view. 
 
 make:foundation will create the following:
 
@@ -593,14 +608,14 @@ command.
 The command has the following arguments:
 
 ```
-php artisan make:parent-child {ParentName} {ChildName} {MasterPageName} {Slug=false}
+php artisan make:parent-child {ParentName} {ChildName} {MasterPageName=master} {Slug=false}
 
 ```
 
 So for example, you might want to run it as follows:
 
 ```
-php artisan make:parent-child Category Subcategory master
+php artisan make:parent-child Category Subcategory
 
 ```
 
@@ -610,7 +625,7 @@ The datagrid it will build for Subcategory for example, will show the category t
 
 Both the parent model and the child model will be built with the relationship made for you.  The parent will have a has many relationship and the child will have a belongsTo relationship in the model.
 
-You also get a dropdown list of parent models, for example, categories, on the child create form, or in this case the subcategory create form, which allows you to associate the child to the parent.
+You also get a dropdown list of parent models, for example, categories, on the child create form, or in this case the subcategory create form, which allows you to associate the child to the parent.  The views would extend layouts.master, since we default to a master page named ‘master.’
 
 This command, like the **[make:foundation](#makefoundation)** command, will create all the crud and views for you, you only need to run your migration, unit tests, and factory methods to populate them, and then run gulp to update the assets.  You can do this in under a minute.
 
@@ -619,18 +634,22 @@ This command, like the **[make:foundation](#makefoundation)** command, will crea
 In cases where you have an existing model, and you want to create a foundation for a child model, you should use the make:child-of command.  The signature of the command is as follows:
 
 ```
-php artisan make:child-of {ParentName} {ChildName} {MasterPageName} {Slug=false}
+php artisan make:child-of {ParentName} {ChildName} {MasterPageName=master} {Slug=false}
 
 ```
 
 So for example, if you had created a foundation for AutoMaker and you wanted a child model named AutoPart, you could run the following command:
 
 ```
-php artisan make:child-of AutoMaker AutoPart master
+php artisan make:child-of AutoMaker AutoPart
  
 ```
 
-This would update the parent model, in this case AutoMaker, with the has many relationship and also create a foundation for AutoPart, which will include the belongs to relationship to AutoMaker.
+This would update the parent model, in this case AutoMaker, with the has many relationship and also create a foundation for AutoPart, which will include the belongs to relationship to AutoMaker.  The views would extend layouts.master, since we default to a master page named ‘master.’
+
+If you want to give a value of ‘Slug’ for Slug, then you also need to supply the third argument for the name of the master page.
+
+If you want to give a value of ‘Slug’ for Slug, then you also need to supply the third argument for the name of the master page.
 
 ## make:templates
 
@@ -644,6 +663,81 @@ This command will make a Templates folder in your app folder.  You may customize
 You may also inject custom tokens into these templates by using the CustomTokens class in the CustomTokens.php file in your Templates folder.  Read the comments in the file for usage.  You can read more on this:
 
  **[Custom Tokens](#customtokens)**
+
+## make:exception
+
+The make:exception command will make an exception with the name supplied and also a corresponding view, if the View flag is supplied.
+
+The command signature is as follows:
+
+```
+php artisan make:exception {ExceptionName} {View=false} {MasterPageName=master}
+
+```
+
+The view flag defaults to false, so unless you provide a value other than false, no view will be created.
+
+You do not need to provide the view name, it will be formatted automatically from the exception name.
+
+So for example, if you wanted an exception for Payment declined, the command could look like this:
+
+```
+
+php artisan make:exception PaymentDeclined View
+
+```
+
+In this case, you will get PaymentDeclinedException.php in your app/Exceptions folder and payment-declined.blade.php in your resources/views/errors folder.  Since we did not specify a master page name, it defaults to master.
+
+You need to add the exception manually to your Handler.php file.  You may use our **[make:exception-handler](#makeexception-handler)** command to make a compatible Handler for this approach to exception handling.
+
+Also note, the view is written to expect the $e object passed to it, so you can include custom messages.  It will be included in the blade syntax as follows:
+
+```
+
+{{ $e->getMessage() }}
+
+```
+
+If you do not want to pass along the $e object to the view from your Handler.php file, you need to set up a custom template with that part removed or remove it manually after creating the exception with the native template.
+
+You must provide the correct exception name in the correct format, example:
+
+```
+
+php artisan make:exception PaymentDeclined View
+
+```
+
+Note that you do not need to add the word Exception to the name, it is added automatically.   
+
+## make:exception-handler
+
+This command will overwrite the native exception handler with Foundation Maker’s exception handler.
+
+```
+
+php artisan make:exception-handler
+
+```
+
+This command takes no arguments.  It will overwrite the existing file, so it is best used when setting up a new project.
+
+The Handler.php class is setup to render views and pass along the $e object, so that the view can take in a custom message.  The class utilizes a switch statement on exception type, making it easy to add exceptions.
+
+Note that when you are running the **[make:exception](#makeexception)** command, you have to add the exceptions to the Handler manually, in both the render and renderException methods.  The renderException case statement would look like:
+
+~~~~
+
+case ($e instanceof YourCustomException):
+   
+   return response()->view('errors.your-custom', compact('e'));
+
+   Break;
+
+
+
+~~~~
 
 
 ## Remove Commands
@@ -699,6 +793,25 @@ remove:crud will remove the following:
 * appropriately named model query file
 * factory method
 * routes
+
+## remove:exception
+
+This command will remove the exception and the view if the view exists:
+
+```
+php artisan remove:exception {ExceptionName}
+
+```
+
+You must provide the correct exception name in the correct format, example:
+
+```
+
+php artisan remove:exception PaymentDeclined
+
+```
+
+Note that you do not need to add the word Exception to the name, it is added automatically.
 
 ## remove:views
 

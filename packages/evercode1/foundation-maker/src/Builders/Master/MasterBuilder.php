@@ -8,6 +8,7 @@ class MasterBuilder
 {
     public $masterPageName;
     public $appName;
+    public $navType;
     public $files = [];
     public $writer;
 
@@ -22,17 +23,18 @@ class MasterBuilder
     public function makeMasterFiles()
     {
 
-        $this->writer->writeEachMasterFile($this->masterPageName, $this->appName, $this->files);
+        $this->writer->writeEachMasterFile($this->masterPageName, $this->appName, $this->navType, $this->files);
 
         return true;
 
     }
 
-    public function setFileNamesAndPaths($masterPageName, $appName)
+    public function setFileNamesAndPaths($masterPageName, $appName, $navType=false)
     {
 
         $this->masterPageName = $masterPageName;
         $this->appName = $appName;
+        $this->navType = $navType;
 
         $this->files[$this->masterPageName] = base_path('resources/views/layouts/'. $this->masterPageName . '.blade.php');
         $this->files['css'] = base_path('resources/views/layouts/css.blade.php');

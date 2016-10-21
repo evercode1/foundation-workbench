@@ -66,7 +66,7 @@ class MasterPageTemplateAssembler
 
         $addTokens = new \App\Templates\CustomTokens($this->model, $this->modelPath);
 
-        $this->tokens = $this->mergeUniqueTokens($this->tokens, $addTokens->customTokens);
+        $this->tokens = $this->mergeTokens($this->tokens, $addTokens->customTokens);
 
 
     }

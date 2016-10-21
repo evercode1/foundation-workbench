@@ -8,7 +8,7 @@ class MasterPageContentRouter
 {
 
 
-    public function getContentFromTemplate($masterPageName,  $appName, $fileName)
+    public function getContentFromTemplate($masterPageName,  $appName, $navType, $fileName)
     {
 
         switch($fileName){
@@ -26,6 +26,15 @@ class MasterPageContentRouter
                 break;
 
             case 'nav' :
+
+                if ($navType){
+
+                    return $this->routeTemplate($masterPageName, $appName, $navType);
+
+                    break;
+
+                }
+
 
                 return $this->routeTemplate($masterPageName, $appName, 'navTemplate');
 

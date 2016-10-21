@@ -14,3 +14,18 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+// Begin Widget Routes
+
+Route::get('api/widget-data', 'ApiController@widgetData');
+
+Route::resource('widget', 'WidgetController');
+
+// End Widget Routes
+// Begin Tank Routes
+
+Route::get('api/tank-data', 'ApiController@tankData');
+
+Route::resource('tank', 'TankController');
+
+// End Tank Routes

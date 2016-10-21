@@ -21,3 +21,30 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
         'remember_token' => str_random(10),
     ];
 });
+
+// Begin Widget Factory
+
+$factory->define(App\Widget::class, function (Faker\Generator $faker) {
+
+    return [
+
+        'name' => $faker->unique()->word,
+
+    ];
+
+});
+
+// End Widget Factory
+// Begin Tank Factory
+
+$factory->define(App\Tank::class, function (Faker\Generator $faker) {
+
+    return [
+
+        'name' => $faker->unique()->word,
+
+    ];
+
+});
+
+// End Tank Factory

@@ -14,7 +14,7 @@ class MakeMasterPage extends Command
      * @var string
      */
     protected $signature = 'make:master
-                           {MasterPageName}
+                           {MasterPageName=master}
                            {AppName=Demo}';
 
     /**
