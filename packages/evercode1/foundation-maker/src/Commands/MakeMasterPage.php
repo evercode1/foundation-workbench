@@ -2,11 +2,14 @@
 
 namespace Evercode1\FoundationMaker\Commands;
 
+use Evercode1\FoundationMaker\Commands\CommandTraits\MakesLayoutsFolder;
 use Illuminate\Console\Command;
 use Evercode1\FoundationMaker\Builders\Master\MasterBuilder;
 
 class MakeMasterPage extends Command
 {
+
+    use MakesLayoutsFolder;
 
     /**
      * The name and signature of the console command.
@@ -71,23 +74,7 @@ class MakeMasterPage extends Command
 
     }
 
-    public function makeLayoutsFolder()
-    {
 
-        if (file_exists(base_path('/resources/views/layouts'))) {
-
-            $this->error('layouts folder already exists!');
-
-            die();
-
-        }
-
-        mkdir(base_path('/resources/views/layouts'));
-
-
-        return true;
-
-    }
 
 
 

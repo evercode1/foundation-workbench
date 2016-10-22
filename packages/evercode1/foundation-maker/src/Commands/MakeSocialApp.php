@@ -2,6 +2,7 @@
 
 namespace Evercode1\FoundationMaker\Commands;
 
+use Evercode1\FoundationMaker\Commands\CommandTraits\MakesLayoutsFolder;
 use Illuminate\Console\Command;
 use Evercode1\FoundationMaker\Builders\Social\SocialAppBuilder;
 use Evercode1\FoundationMaker\Builders\Master\MasterBuilder;
@@ -9,6 +10,8 @@ use Evercode1\FoundationMaker\Builders\ElixirAssets\AssetsBuilder;
 
 class MakeSocialApp extends Command
 {
+
+    use MakesLayoutsFolder;
 
     /**
      * The name and signature of the console command.
@@ -54,11 +57,10 @@ class MakeSocialApp extends Command
 
         $masterPage->setFileNamesAndPaths($masterPageName, $appName, 'socialNavTemplate');
 
-        if ( $masterPage->makeMasterFiles() ) {
+        if ( $this->makeLayoutsFolder() && $masterPage->makeMasterFiles() ) {
 
             $this->sendMasterSuccessMessage();
-
-
+            
 
         } else {
 
