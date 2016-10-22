@@ -70,7 +70,6 @@ class SocialAppBuilder
         $this->fileWritePaths['SetsAuthUser'] = base_path() . '/app/Http/AuthTraits/Social/SetsAuthUser.php';
         $this->fileWritePaths['SyncsSocialUsers'] = base_path() . '/app/Http/AuthTraits/Social/SyncsSocialUsers.php';
         $this->fileWritePaths['VerifiesSocialUsers'] = base_path() . '/app/Http/AuthTraits/Social/VerifiesSocialUsers.php';
-
         $this->fileWritePaths['OwnsRecord'] = base_path() . '/app/Http/AuthTraits/OwnsRecord.php';
 
 
@@ -99,6 +98,8 @@ class SocialAppBuilder
         $this->fileWritePaths['ProfileController'] = base_path() . '/app/Http/Controllers/ProfileController.php';
         $this->fileWritePaths['SettingsController'] = base_path() . '/app/Http/Controllers/SettingsController.php';
         $this->fileWritePaths['UserController'] = base_path() . '/app/Http/Controllers/UserController.php';
+
+
 
 
         // .env
