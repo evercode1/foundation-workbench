@@ -103,7 +103,7 @@ class SocialAppBuilder
 
         // .env
 
-        $this->fileAppendPaths['routes'] = base_path() . '/.env';
+        $this->fileAppendPaths['Env'] = base_path() . '/.env';
 
         // Exceptions
 
