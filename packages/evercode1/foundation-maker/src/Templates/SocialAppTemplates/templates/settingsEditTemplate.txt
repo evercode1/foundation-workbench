@@ -33,9 +33,6 @@
         <hr/>
 
 
-        @include('errors.list')
-
-
         <form class="form" role="form" method="POST" action="{{ url('/settings') }}">
 
         {{ csrf_field() }}
