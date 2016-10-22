@@ -85,6 +85,7 @@ class SocialAppFileWriter
 
 
         $this->folders['authTraitDirectory'] = base_path('app/Http/AuthTraits');
+        $this->folders['authTraitSocialDirectory'] = base_path('app/Http/AuthTraits/Social');
         $this->folders['queryDirectory'] = base_path('app/Queries');
         $this->folders['gridQueriesDirectory'] = base_path('app/Queries/GridQueries');
         $this->folders['contractsDirectory'] = base_path('app/Queries/GridQueries/Contracts');
