@@ -15,7 +15,7 @@ class MakeSocialApp extends Command
      *
      * @var string
      */
-    protected $signature = 'make:social-app
+    protected $signature = 'make:social-app-beta
                            {AppName=demo}
                            {MasterPageName=master}';
 
@@ -24,7 +24,7 @@ class MakeSocialApp extends Command
      *
      * @var string
      */
-    protected $description = 'create basic social app';
+    protected $description = 'test version of create basic social app - Do Not Use';
 
 
 
@@ -48,35 +48,35 @@ class MakeSocialApp extends Command
     {
 
 
-//        $appName = $this->argument('AppName');
-//
-//        $masterPageName = $this->argument('MasterPageName');
-//
-//        $masterPage->setFileNamesAndPaths($masterPageName, $appName, 'socialNavTemplate');
-//
-//        if ( $masterPage->makeMasterFiles() ) {
-//
-//            $this->sendMasterSuccessMessage();
-//
-//
-//
-//        } else {
-//
-//            $this->error('Oops, something went wrong!');
-//
-//
-//        }
-//
-//        if ( $assets->makeAssetFiles() ) {
-//
-//            $this->sendAssetSuccessMessage();
-//
-//
-//        } else {
-//
-//            $this->error('Oops, something went wrong!');
-//
-//        }
+        $appName = $this->argument('AppName');
+
+        $masterPageName = $this->argument('MasterPageName');
+
+        $masterPage->setFileNamesAndPaths($masterPageName, $appName, 'socialNavTemplate');
+
+        if ( $masterPage->makeMasterFiles() ) {
+
+            $this->sendMasterSuccessMessage();
+
+
+
+        } else {
+
+            $this->error('Oops, something went wrong!');
+
+
+        }
+
+        if ( $assets->makeAssetFiles() ) {
+
+            $this->sendAssetSuccessMessage();
+
+
+        } else {
+
+            $this->error('Oops, something went wrong!');
+
+        }
 
 
 

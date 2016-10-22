@@ -15,8 +15,6 @@ class SocialAppContentRouter
         $template = lcfirst( $fileName);
         $templateName = $template . 'Template';
 
-        dd($templateName);
-
         return $this->routeTemplate($tokens, $templateName);
 
 
