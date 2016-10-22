@@ -145,9 +145,9 @@ class SocialAppBuilder
 
         // Queries
 
-        $this->fileWritePaths['DataQuery'] = base_path() . '/Queries/GridQueries/Contracts/DataQuery.php';
-        $this->fileWritePaths['GridQuery'] = base_path() . '/Queries/GridQueries/GridQuery.php';
-        $this->fileWritePaths['MarketingImageQuery'] = base_path() . '/Queries/GridQueries/MarketingImageQuery.php';
+        $this->fileWritePaths['DataQuery'] = base_path() . 'app/Queries/GridQueries/Contracts/DataQuery.php';
+        $this->fileWritePaths['GridQuery'] = base_path() . 'app/Queries/GridQueries/GridQuery.php';
+        $this->fileWritePaths['MarketingImageQuery'] = base_path() . 'app/Queries/GridQueries/MarketingImageQuery.php';
 
 
         // Requests
