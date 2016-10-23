@@ -756,11 +756,11 @@ This command will remove your layouts folder and everything in it.
 
 ## make:social-app
 
-This command is still in beta.  Use this command with a fresh install of Laravel.  The signature is as follows:
+Use this command with a fresh install of Laravel.  The signature is as follows:
 
 ```
 
-php artisan make:social-app-beta {DomainName} {AppName=demo} {MasterPageName=master}
+php artisan make:social-app {DomainName} {AppName=demo} {MasterPageName=master}
 
 ```
 
