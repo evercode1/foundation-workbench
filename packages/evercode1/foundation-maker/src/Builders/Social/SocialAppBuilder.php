@@ -88,6 +88,7 @@ class SocialAppBuilder
 
         $this->fileWritePaths['ImageDefaults'] = base_path() . '/config/image-defaults.php';
         $this->fileWritePaths['Services'] = base_path() . '/config/services.php';
+        $this->fileWritePaths['Session'] = base_path() . '/config/session.php';
 
         // controllers
 
@@ -247,8 +248,9 @@ class SocialAppBuilder
 
     private function setInput($input)
     {
-        // these dummy values are needed to instantiate the Token class.
-        // We do not use them to create the app.
+
+
+        $this->domainName = $input['DomainName'];
 
         $this->initialValues['model'] = 'model';
 

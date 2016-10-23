@@ -19,6 +19,7 @@ class MakeSocialApp extends Command
      * @var string
      */
     protected $signature = 'make:social-app-beta
+                           {DomainName}
                            {AppName=demo}
                            {MasterPageName=master}';
 

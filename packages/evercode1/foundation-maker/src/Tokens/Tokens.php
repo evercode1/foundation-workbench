@@ -8,6 +8,7 @@ class Tokens
 {
     use FormatsModel;
 
+    public $domainName;
     public $model;
     public $masterPageName;
     public $appName;
@@ -50,6 +51,8 @@ class Tokens
         $controllerName = $this->model . 'Controller';
 
         $createdAt = $this->formatInstanceVariable() . '->created_at';
+
+        $domainName = $this->domainName;
 
         $endGridName = '/' . $this->formatVueGridName() . '-grid';
 
@@ -124,6 +127,7 @@ class Tokens
                           'childsTableName',
                           'createdAt',
                           'controllerName',
+                          'domainName',
                           'endGridName',
                           'field_name',
                           'folderName',
