@@ -148,7 +148,7 @@ return [
     |
     */
 
-    'domain' => env('SESSION_DOMAIN', ':::DomainName:::'),
+    'domain' => env('SESSION_DOMAIN', ':::domainName:::'),
 
     /*
     |--------------------------------------------------------------------------

@@ -28,7 +28,7 @@ class MakeSocialApp extends Command
      *
      * @var string
      */
-    protected $description = 'test version of create basic social app - Do Not Use';
+    protected $description = 'create basic social app - See Docs for Dependencies';
 
 
 
