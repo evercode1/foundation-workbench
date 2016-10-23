@@ -6,7 +6,7 @@
 
 **FoundationMaker** is a code generator for use with the Laravel PHP framework (5.3 and up) Artisan command line tool.
 
-FoundationMaker adds 17 new artisan commands, providing ready-made templates for CRUD generation, Views and Datagrids, with ajax-powered search, column sorts and pagination.   You can create, migrate and test a foundation of code with crud and views in under a minute.  You can also make your own custom templates and tokens for use with FoundationMaker.
+FoundationMaker adds 18 new artisan commands, providing ready-made templates for CRUD generation, Views and Datagrids, with ajax-powered search, column sorts and pagination.   You can create, migrate and test a foundation of code with crud and views in under a minute.  You can also make your own custom templates and tokens for use with FoundationMaker.  There is also a command to make an instant social app.
 
 Help **[Support FoundationMaker](#support-foundationmaker)**.  
 
@@ -54,11 +54,13 @@ Minimal bootstrap is used, so you can easily modify and extend as you wish.
 
 With the **[make:templates](#maketemplates)** command, you can easily modify the templates that FoundationMaker uses, adding your personalized touch to the code.
 
+The **[make:social-app](#makesocial-app** command incorporates **[make:assets](#makeassets)** and **[make:master](#makemaster)** and stands up an entire social app.  See docs for dependencies.
+
 ## FoundationMaker Commands
 
 FoundationMaker will install 17 artisan commands.
 
-10 make commands:
+11 make commands:
 
 * **[make:assets](#makeassets)**
 * **[make:child-of](#makechild-of)**
@@ -68,6 +70,7 @@ FoundationMaker will install 17 artisan commands.
 * **[make:foundation](#makefoundation)**
 * **[make:master](#makemaster)**
 * **[make:parent-child](#makeparent-child)**
+* **[make:social-app](#makesocial-app)**
 * **[make:templates](#maketemplates)**
 * **[make:views](#makeviews)**
 
@@ -751,7 +754,159 @@ php artisan remove:master
 
 This command will remove your layouts folder and everything in it.
 
+## make:social-app
 
+This command is still in beta.  Use this command with a fresh install of Laravel.  The signature is as follows:
+
+```
+
+php artisan make:social-app-beta {DomainName} {AppName=demo} {MasterPageName=master}
+
+```
+
+If you do not supply the last two arguments, they will default to ‘demo’ and ‘master’ respectively.
+
+So if you ran the following:
+
+```
+
+php artisan make:social-app my-demo.com MyDemo
+
+```
+
+The command will set the domain setting of ‘my-demo’  in config/session.php and your master page will be named ‘master’ and your app name will be named ‘MyDemo.’
+
+Note that you cannot use a space in your parameters.  In the above example, ‘My Demo’ would result in an app name of ‘My’ and a master page named ‘Demo.’
+
+For the app to work, it requires the following dependencies in your application:
+
+* [Intervention Image](http://image.intervention.io/getting_started/installation#laravel)
+* [Laravel Socialite](https://github.com/laravel/socialite)
+* [Creative Orange Gravatar](https://github.com/creativeorange/gravatar)
+* [Laravel Collective Html](https://laravelcollective.com/docs/5.3/html)
+
+You should require those dependencies in via composer and set the associated provider values into config/app.php.
+
+Obviously, you will need to create your facebook app to use the one-click social login.  You will do that on your own.  The app is ready for both Facebook and Github.  You will provide those credentials to the .env file.
+
+If you have not already done so with setup, you will need to run:
+
+```
+
+ npm install 
+
+```
+
+You will also need to run the following after the make:social-app command:
+
+```
+
+php artisan migrate
+
+```
+
+And also:
+
+```
+
+gulp
+
+
+```
+
+
+You do not need to run make:master or make:assets, all of those files are created by make:social-app.
+
+Here is a description of the files the command creates:
+### Controllers
+
+* Auth Controller
+* Api Controller
+* User Controller
+* Marketing Image Controller
+* Pages Controller
+* Profile Controller
+* Settings Controller
+
+### Exceptions
+
+* Handler.php
+* 8 other exception files and associated views
+
+### Auth Traits
+
+* 6 traits need for social auth
+* OwnsRecord trait for access control
+
+### Middleware
+
+* AllowIfAdmin.php
+* Kernel.php
+
+### Requests
+
+* CreateImageRequest
+* EditImageRequest
+* UserRequest
+
+### Queries
+
+* Contracts folder and DataGrid.php contract
+* GridQuery.php and MarketingImageQeury.php
+
+### Traits
+
+* HasModelTrait
+* ManagesImages
+* ShowsImages
+
+### Models
+
+* User
+* Profile
+* SocialProvider
+* MarketingImage
+* SuperModel
+
+### Config
+
+* image-defaults.php
+* session.php
+* services.php
+
+### Migrations
+
+* 4 migrations needed to run the app
+
+### Assets
+
+* gulpfile.js
+* components.js
+*main.scss
+* configures all asset files need to run the app
+
+### Views
+
+* All auth views
+* Layouts folder and master page views
+* Error views for exceptions
+* All other views need to run the app
+
+### Routes
+
+* overwrites web.php with all necessary routes for app
+
+### Env
+
+* Adds facebook and github to .env file
+
+The make:social-app command is only meant to be used at the very beginning of the project due to the large number of files it will overwrite.  Running the command after doing other work may cause files to be overwritten.
+
+The files the make:social-app command makes are fully compatible with the make:foundation command and other FoundationMaker commands.  The Handler.php file for example, is formatted to work with the make:exception command.
+
+There is no corresponding remove command for make:social-app.
+
+## Remove Commands
 
 ## remove:foundation
 
