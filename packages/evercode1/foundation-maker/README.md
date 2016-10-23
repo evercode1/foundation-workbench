@@ -6,7 +6,7 @@
 
 **FoundationMaker** is a code generator for use with the Laravel PHP framework (5.3 and up) Artisan command line tool.
 
-FoundationMaker adds 18 new artisan commands, providing ready-made templates for CRUD generation, Views and Datagrids, with ajax-powered search, column sorts and pagination.   You can create, migrate and test a foundation of code with crud and views in under a minute.  You can also make your own custom templates and tokens for use with FoundationMaker.  There is also a command to make an instant social app.
+FoundationMaker adds 19 new artisan commands, providing ready-made templates for CRUD generation, Views and Datagrids, with ajax-powered search, column sorts and pagination.   You can create, migrate and test a foundation of code with crud and views in under a minute.  You can also make your own custom templates and tokens for use with FoundationMaker.  There is also a command to make an instant social app.
 
 Help **[Support FoundationMaker](#support-foundationmaker)**.  
 
@@ -58,7 +58,7 @@ The **[make:social-app](#makesocial-app** command incorporates **[make:assets](#
 
 ## FoundationMaker Commands
 
-FoundationMaker will install 17 artisan commands.
+FoundationMaker will install 19 artisan commands.
 
 11 make commands:
 
