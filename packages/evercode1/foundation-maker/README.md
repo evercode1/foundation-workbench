@@ -537,6 +537,12 @@ Please remember to run gulp after both the **[make:vies](#makeviews)** and the *
 
 If you wish to manipulate the templates being used by FoundationMaker, please run the **[make:templates](#maketemplates)** command.
 
+### Requirements For Views
+
+To use the **[make:views](#makeviews)** or **[make:foundation](#makefoundation)** command successfully, you need to have a master page. We recommend using our **[make:master](#makemaster)** command, it will give you a nice starting point for your project.
+
+You also need to have certain assets in place, which you can get by running the **[make:assets](#makeassets)** command and running gulp.
+
 ## make:foundation
 
 The make:foundation command has the following arguments:
@@ -743,17 +749,6 @@ case ($e instanceof YourCustomException):
 ~~~~
 
 
-## Remove Commands
-
-## remove:master
-
-```
-php artisan remove:master
-
-```
-
-This command will remove your layouts folder and everything in it.
-
 ## make:social-app
 
 Use this command with a fresh install of Laravel.  The signature is as follows:
@@ -908,6 +903,16 @@ There is no corresponding remove command for make:social-app.
 
 ## Remove Commands
 
+
+## remove:master
+
+```
+php artisan remove:master
+
+```
+
+This command will remove your layouts folder and everything in it.
+
 ## remove:foundation
 
 ```
@@ -1018,13 +1023,6 @@ remove:child-of will remove the following:
 ## remove:templates
 
 If you have used the **[make:templates](#maketemplates)** command to create the Templates folder in your app folder, you can use the **[remove:templates](#removetemplates)** command to remove the entire folder. 
-
-
-## Requirements For Views
-
-To use the **[make:views](#makeviews)** or **[make:foundation](#makefoundation)** command successfully, you need to have a master page. We recommend using our **[make:master](#makemaster)** command, it will give you a nice starting point for your project.
-
-You also need to have certain assets in place, which you can get by running the **[make:assets](#makeassets)** command and running gulp.
 
 
 ## Tokens
