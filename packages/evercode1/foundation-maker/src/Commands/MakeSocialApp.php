@@ -70,6 +70,8 @@ class MakeSocialApp extends Command
 
         }
 
+        $assets->setFileNamesAndPaths();
+
         if ( $assets->makeAssetFiles() ) {
 
             $this->sendAssetSuccessMessage();

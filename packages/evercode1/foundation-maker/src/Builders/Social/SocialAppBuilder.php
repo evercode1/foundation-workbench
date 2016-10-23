@@ -73,8 +73,6 @@ class SocialAppBuilder
         $this->fileWritePaths['OwnsRecord'] = base_path() . '/app/Http/AuthTraits/OwnsRecord.php';
 
 
-
-
         // component
 
         $this->fileWritePaths['MarketingImageGrid'] = base_path() . '/resources/assets/js/components/MarketingImageGrid.vue';
@@ -250,7 +248,7 @@ class SocialAppBuilder
     {
 
 
-        $this->domainName = $input['DomainName'];
+        $this->initialValues['domainName'] = $input['DomainName'];
 
         $this->initialValues['model'] = 'model';
 
