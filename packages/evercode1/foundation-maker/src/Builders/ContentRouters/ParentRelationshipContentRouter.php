@@ -19,7 +19,7 @@ class ParentRelationshipContentRouter
             case 'parentModel' :
 
 
-                    return $this->routeTemplate($tokens, 'ParentRelationshipTemplate');
+                    return $this->routeTemplate($tokens, 'parentRelationshipTemplate');
                     break;
 
 
