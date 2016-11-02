@@ -33,7 +33,7 @@ class MasterPageContentRouter
 
             default:
 
-                $template = lcfirst($fileName);
+                $template = lcfirst($fileName) . 'Template';
 
                 return $this->routeTemplate($masterPageName, $appName, $template);
 
