@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\MarketingImage;
 use App\Traits\ManagesImages;
 use App\Traits\ShowsImages;
+use Illuminate\Support\Facades\Auth;
 
 class PagesController extends Controller
 {

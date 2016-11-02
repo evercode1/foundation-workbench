@@ -228,6 +228,10 @@ class SocialAppBuilder
         $this->fileAppendPaths['UserEdit'] = base_path() . '/resources/views/user/edit.blade.php';
         $this->fileAppendPaths['UserShow'] = base_path() . '/resources/views/user/show.blade.php';
 
+        // user-dash
+
+        $this->fileAppendPaths['UserDashIndex'] = base_path() . '/resources/views/user-dash/index.blade.php';
+
 
 
     }
