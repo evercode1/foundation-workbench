@@ -1133,6 +1133,7 @@ Currently, when you make a foundation, it formats to the frontend pages, not the
 
 
 ```
+@section('content')
 
 
 <div class="row">
