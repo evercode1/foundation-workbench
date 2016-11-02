@@ -77,6 +77,10 @@ Route::get('auth/{provider}/callback', 'Auth\AuthController@handleProviderCallba
 
 Route::get('terms-of-service', 'PagesController@terms');
 
+// User Dash
+
+Route::get('/user-dash', 'UserDashController@index');
+
 // User route
 
 Route::resource('user', 'UserController');

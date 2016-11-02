@@ -1,10 +1,12 @@
-@extends('layouts.master')
+@extends('layouts.master-admin')
 
 @section('title')
     <title>{{ $user->name }}</title>
 @endsection
 
 @section('content')
+    <div class="row">
+        <div class="col-sm-offset-4 col-sm-8">
 
 
         @if(Auth::user()->isAdmin())
@@ -103,6 +105,8 @@
 
         </div>
 
+    </div>
+    </div>
 @endsection
 
 @section('scripts')

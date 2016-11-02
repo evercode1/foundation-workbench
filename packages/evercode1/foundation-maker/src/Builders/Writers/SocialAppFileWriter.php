@@ -102,6 +102,8 @@ class SocialAppFileWriter
         $this->folders['marketingDirectory'] = base_path('public/imgs/marketing');
         $this->folders['thumbnailMarketingDirectory'] = base_path('public/imgs/marketing/thumbnails');
         $this->folders['requestsDirectory'] = base_path('app/Http/Requests');
+        $this->folders['userDashDirectory'] = base_path('resources/views/user-dash');
+
 
 
 

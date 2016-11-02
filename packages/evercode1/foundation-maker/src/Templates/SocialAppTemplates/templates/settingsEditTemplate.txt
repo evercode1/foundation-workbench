@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('layouts.master-admin')
 
 @section('title')
 
@@ -7,6 +7,9 @@
 @endsection
 
 @section('content')
+
+    <div class="row">
+        <div class="col-sm-offset-4 col-sm-8">
 
         <ol class='breadcrumb'>
             <li><a href='/'>Home</a></li>
@@ -105,6 +108,7 @@
 
         </form>
 
-
+</div>
+    </div>
 
 @endsection

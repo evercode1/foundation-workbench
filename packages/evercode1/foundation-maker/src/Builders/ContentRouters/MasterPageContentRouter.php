@@ -13,17 +13,6 @@ class MasterPageContentRouter
 
         switch($fileName){
 
-            case $masterPageName :
-
-                return $this->routeTemplate($masterPageName, $appName, 'masterTemplate');
-
-                break;
-
-            case 'css' :
-
-                return $this->routeTemplate($masterPageName, $appName, 'cssTemplate');
-
-                break;
 
             case 'nav' :
 
@@ -40,28 +29,13 @@ class MasterPageContentRouter
 
                 break;
 
-            case 'scripts' :
-
-                return $this->routeTemplate($masterPageName, $appName, 'scriptsTemplate');
-
-                break;
-
-            case 'bottom' :
-
-                return $this->routeTemplate($masterPageName, $appName, 'bottomTemplate');
-
-                break;
-
-            case 'meta' :
-
-                return $this->routeTemplate($masterPageName, $appName, 'metaTemplate');
-
-                break;
 
 
             default:
 
-                return 'Filename not recognized';
+                $template = lcfirst($fileName);
+
+                return $this->routeTemplate($masterPageName, $appName, $template);
 
 
 

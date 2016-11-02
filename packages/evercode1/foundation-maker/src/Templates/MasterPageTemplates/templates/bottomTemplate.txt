@@ -1,6 +1,7 @@
+
 <hr>
 <div class="well">
-    <p>&copy;
+
 
         @if (date('Y') > 2015)
             2015 - {{ date('Y') }}
@@ -11,5 +12,13 @@
 
         @endif
 
-        :::appName::: All rights Reserved.</p>
+
+        :::appName::: All rights Reserved.
+
+    <div class="right-footer">
+        <a href="/about">About</a> |
+        <a href="/terms-of-service">Terms of Service</a> |
+        <a href="/privacy">Privacy</a>
+
+    </div>
 </div>

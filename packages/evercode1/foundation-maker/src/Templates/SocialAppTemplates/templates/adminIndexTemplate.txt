@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('layouts.master-admin')
 
 @section('title')
 
@@ -8,8 +8,12 @@
 
 @section('content')
 
-    <h1>Admin</h1>
 
-    @include('admin.grid')
+    <div>
+
+        @include('admin.grid')
+
+    </div>
+
 
 @endsection

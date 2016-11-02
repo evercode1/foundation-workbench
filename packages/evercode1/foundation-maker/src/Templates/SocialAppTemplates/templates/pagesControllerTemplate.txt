@@ -20,6 +20,13 @@ class PagesController extends Controller
     public function index()
     {
 
+        if (Auth::check()){
+
+
+            return view('user-dash.index');
+
+        }
+
         $featuredImage = MarketingImage::where('is_featured', 1)
                                        ->where('is_active', 1)
                                        ->first();

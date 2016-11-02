@@ -97,6 +97,7 @@ class SocialAppBuilder
         $this->fileWritePaths['ProfileController'] = base_path() . '/app/Http/Controllers/ProfileController.php';
         $this->fileWritePaths['SettingsController'] = base_path() . '/app/Http/Controllers/SettingsController.php';
         $this->fileWritePaths['UserController'] = base_path() . '/app/Http/Controllers/UserController.php';
+        $this->fileWritePaths['UserDashController'] = base_path() . '/app/Http/Controllers/UserDashController.php';
 
 
 

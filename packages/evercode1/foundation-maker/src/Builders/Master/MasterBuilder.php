@@ -43,6 +43,15 @@ class MasterBuilder
         $this->files['bottom'] = base_path('resources/views/layouts/bottom.blade.php');
         $this->files['meta'] = base_path('resources/views/layouts/meta.blade.php');
 
+        if ($this->navType == 'socialNavTemplate'){
+
+            $this->files['bottomAdmin'] = base_path('resources/views/layouts/bottom-admin.blade.php');
+            $this->files['leftNav'] = base_path('resources/views/layouts/left-nav.blade.php');
+            $this->files['masterAdmin'] = base_path('resources/views/layouts/master-admin.blade.php');
+
+
+        }
+
     }
 
 
