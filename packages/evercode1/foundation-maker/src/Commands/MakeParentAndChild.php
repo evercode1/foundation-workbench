@@ -19,7 +19,7 @@ class MakeParentAndChild extends Command
     protected $signature = 'make:parent-child
                            {ParentName}
                            {ChildName}
-                           {ViewType=frontend}
+                           {ViewType=fullpage}
                            {MasterPage=master}
                            {Slug=false}';
 

@@ -420,7 +420,7 @@ php artisan make:foundation Widget
 Obviously, Widget is the name of the model we want to create. 
 
 
-We did not supply a second or third argument, so it will default to ‘frontend’ for view type and ‘master,’ which is the name of our master page.  We also have the option to put on a fourth parameter, ‘Slug’, which will include slugs in the views, but we are not doing that for this example.
+We did not supply a second or third argument, so it will default to ‘fullpage’ for view type and ‘master,’ which is the name of our master page.  We also have the option to put on a fourth parameter, ‘Slug’, which will include slugs in the views, but we are not doing that for this example.
 
 
 If you want to include the third argument, then you must also supply the second argument, se the **[make:foundation](#makefoundation)** command for details.
@@ -698,11 +698,11 @@ The make:views command has  the following arguments:
 
 
 ```
-php artisan make:views {ModelName} {ViewType=frontend} {MasterPageName=master} {Slug=false} 
+php artisan make:views {ModelName} {ViewType=fullpage} {MasterPageName=master} {Slug=false} 
 
 
 ```
-The second argument determines the type of view, frontend or backend, it defaults to ‘frontend.’
+The second argument determines the type of view, it defaults to ‘fullpage.’  If you want to create views for with a left nav, then set that parameter to ‘leftnav.’
 
 
 The last argument is optional and indicates whether or not you want slugs, and this should match the choice you made when you ran make:crud.
@@ -754,7 +754,7 @@ The make:foundation command has the following arguments:
 
 
 ```
-php artisan make:foundation {ModelName} {ViewType=frontend} {MasterPageName=master} {Slug=false}
+php artisan make:foundation {ModelName} {ViewType=fullpage} {MasterPageName=master} {Slug=false}
 
 
 ```
@@ -763,7 +763,7 @@ php artisan make:foundation {ModelName} {ViewType=frontend} {MasterPageName=mast
 The last argument is optional and indicates the slug option to show slugs on the show view.  If you want to use that, include the string ‘slug’ as the 4th argument.
 
 
-Let's look at a typical example.  If you wanted to create a model named Widget without slugs, formatted for frontend, and you had a master page named master.blade.php, you may do the following:
+Let's look at a typical example.  If you wanted to create a model named Widget without slugs, formatted for fullpage, and you had a master page named master.blade.php, you may do the following:
 
 
 ```
@@ -779,7 +779,7 @@ If you want to give a value of ‘Slug’ for Slug, then you also need to supply
 
 
 ```
-php artisan make:foundation Widget frontend master Slug
+php artisan make:foundation Widget fullpage master Slug
 
 
 ```
@@ -788,7 +788,14 @@ php artisan make:foundation Widget frontend master Slug
 Adding slug will create slugs for your show view. 
 
 
-If you want to use backend
+If you want your want your views to leave room for a left nav, then use ‘leftnav’ as the second argument in the command like so:
+
+
+```
+php artisan make:foundation Widget leftnav master Slug
+
+
+```
 
 
 make:foundation will create the following:
@@ -847,7 +854,7 @@ The command has the following arguments:
 
 
 ```
-php artisan make:parent-child {ParentName} {ChildName} {ViewType=frontend} {MasterPageName=master} {Slug=false}
+php artisan make:parent-child {ParentName} {ChildName} {ViewType=fullpage} {MasterPageName=master} {Slug=false}
 
 
 ```
@@ -885,7 +892,7 @@ In cases where you have an existing model, and you want to create a foundation f
 
 
 ```
-php artisan make:child-of {ParentName} {ChildName} {ViewType=frontend} {MasterPageName=master} {Slug=false}
+php artisan make:child-of {ParentName} {ChildName} {ViewType=fullpage} {MasterPageName=master} {Slug=false}
 
 
 ```
@@ -1138,7 +1145,7 @@ You do not need to run make:master or make:assets, all of those files are create
 The app created by make:social-app will have a splash page with a uri of ‘/’, a logged in user dash at ‘/home,’ and an admin dash for admin users at ‘/admin.’
 
 
-Currently, when you make a foundation, it formats to the frontend page by default.  If you want views that work with the social app backend, then you need to specify backend as the second argument  Otherwise, to convert a view to a backend view, you can add the following two divs to the view:
+Currently, when you make a foundation, it formats to the fullpage page by default.  If you want views that work with the social app backend, then you need to specify leftnav as the second argument  Otherwise, to convert a view to a backend view, you can add the following two divs to the view:
 
 
 ```
@@ -1159,6 +1166,8 @@ Add your Facebook credentials, and your skeleton app is ready to go, with fronte
 
 
 Here is a description of the files the command creates:
+
+
 ### Controllers
 
 

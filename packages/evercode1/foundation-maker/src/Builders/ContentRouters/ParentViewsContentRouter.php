@@ -17,11 +17,27 @@ class ParentViewsContentRouter
 
             case 'index' :
 
+                if ($tokens['viewType'] == 'leftnav'){
+
+                    return $this->routeTemplate($tokens, 'indexLeftNavTemplate');
+
+                    break;
+
+                }
+
                 return $this->routeTemplate($tokens, 'indexTemplate');
 
                 break;
 
             case 'create' :
+
+                if ($tokens['viewType'] == 'leftnav'){
+
+                    return $this->routeTemplate($tokens, 'createLeftNavTemplate');
+
+                    break;
+
+                }
 
                 return $this->routeTemplate($tokens, 'createTemplate');
 
@@ -29,11 +45,27 @@ class ParentViewsContentRouter
 
             case 'edit' :
 
+                if ($tokens['viewType'] == 'leftnav'){
+
+                    return $this->routeTemplate($tokens, 'editLeftNavTemplate');
+
+                    break;
+
+                }
+
                 return $this->routeTemplate($tokens, 'editTemplate');
 
                 break;
 
             case 'show' :
+
+                if ($tokens['viewType'] == 'leftnav'){
+
+                    return $this->routeTemplate($tokens, 'showLeftNavTemplate');
+
+                    break;
+
+                }
 
                 return $this->routeTemplate($tokens, 'showTemplate');
 

@@ -17,9 +17,9 @@ class ViewsContentRouter
 
             case 'index' :
 
-                if ($tokens['viewType'] == 'backend'){
+                if ($tokens['viewType'] == 'leftnav'){
 
-                    return $this->routeTemplate($tokens, 'indexBackEndTemplate');
+                    return $this->routeTemplate($tokens, 'indexLeftNavTemplate');
 
                     break;
 
@@ -31,9 +31,9 @@ class ViewsContentRouter
 
             case 'create' :
 
-                if ($tokens['viewType'] == 'backend'){
+                if ($tokens['viewType'] == 'leftnav'){
 
-                    return $this->routeTemplate($tokens, 'createBackEndTemplate');
+                    return $this->routeTemplate($tokens, 'createLeftNavTemplate');
 
                     break;
 
@@ -45,9 +45,9 @@ class ViewsContentRouter
 
             case 'edit' :
 
-                if ($tokens['viewType'] == 'backend'){
+                if ($tokens['viewType'] == 'leftnav'){
 
-                    return $this->routeTemplate($tokens, 'editBackEndTemplate');
+                    return $this->routeTemplate($tokens, 'editLeftNavTemplate');
 
                     break;
 
@@ -59,9 +59,9 @@ class ViewsContentRouter
 
             case 'show' :
 
-                if ($tokens['viewType'] == 'backend'){
+                if ($tokens['viewType'] == 'leftnav'){
 
-                    return $this->routeTemplate($tokens, 'showBackEndTemplate');
+                    return $this->routeTemplate($tokens, 'showLeftNavTemplate');
 
                     break;
 
