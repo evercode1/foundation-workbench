@@ -698,11 +698,11 @@ The make:views command has  the following arguments:
 
 
 ```
-php artisan make:views {ModelName} {ViewType=backend} {MasterPageName=master} {Slug=false} 
+php artisan make:views {ModelName} {ViewType=frontend} {MasterPageName=master} {Slug=false} 
 
 
 ```
-The second argument determines the type of view, frontend or backend, it defaults to ‘backend.’
+The second argument determines the type of view, frontend or backend, it defaults to ‘frontend.’
 
 
 The last argument is optional and indicates whether or not you want slugs, and this should match the choice you made when you ran make:crud.
@@ -1138,7 +1138,7 @@ You do not need to run make:master or make:assets, all of those files are create
 The app created by make:social-app will have a splash page with a uri of ‘/’, a logged in user dash at ‘/home,’ and an admin dash for admin users at ‘/admin.’
 
 
-Currently, when you make a foundation, it formats to the frontend pages, not the backend.  I will be adding a flag shortly to account for this, so you can designate if you want a frontend or backend foundation.  In the meantime, for backend views, you can add the following two divs to the views:
+Currently, when you make a foundation, it formats to the frontend page by default.  If you want views that work with the social app backend, then you need to specify backend as the second argument  Otherwise, to convert a view to a backend view, you can add the following two divs to the view:
 
 
 ```
@@ -1504,6 +1504,7 @@ Here is a list of tokens you may use in the custom templates:
 * upperCaseModelName
 * useModel
 * useParent
+* viewType
 * vueApiControllerMethod
 
 
@@ -1698,4 +1699,3 @@ The MIT License (MIT). Please see [License File](LICENSE.md) for more informatio
 [link-packagist]: https://packagist.org/packages/evercode1/foundation-maker
 [link-downloads]: https://packagist.org/packages/evercode1/foundation-maker/stats
 [link-author]: https://github.com/evercode1
-
