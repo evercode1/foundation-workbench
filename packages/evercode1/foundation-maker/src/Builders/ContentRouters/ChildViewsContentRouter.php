@@ -19,7 +19,7 @@ class ChildViewsContentRouter
 
                 if ($tokens['viewType'] == 'leftnav'){
 
-                    return $this->routeTemplate($tokens, 'childIndexLeftNavTemplate');
+                    return $this->routeTemplate($tokens, 'indexLeftNavTemplate');
 
                     break;
 
