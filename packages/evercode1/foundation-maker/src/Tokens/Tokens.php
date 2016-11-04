@@ -113,6 +113,8 @@ class Tokens
 
         $useParent = 'use App\\' . $this->formatModel($this->parent);
 
+        $viewType = $this->viewType;
+
         $vueApiControllerMethod = $this->formatVueApiControllerMethod();
 
         //create token array using compact
