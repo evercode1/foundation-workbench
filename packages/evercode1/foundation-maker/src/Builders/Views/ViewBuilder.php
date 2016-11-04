@@ -129,6 +129,8 @@ class ViewBuilder
 
         $this->initialValues['slug'] = strtolower($input['Slug']);
 
+        $this->initialValues['viewType'] = $input['ViewType'];
+
     }
 
 }

@@ -17,11 +17,27 @@ class ViewsContentRouter
 
             case 'index' :
 
+                if ($tokens['viewType'] == 'backend'){
+
+                    return $this->routeTemplate($tokens, 'indexBackEndTemplate');
+
+                    break;
+
+                }
+
                 return $this->routeTemplate($tokens, 'indexTemplate');
 
                 break;
 
             case 'create' :
+
+                if ($tokens['viewType'] == 'backend'){
+
+                    return $this->routeTemplate($tokens, 'createBackEndTemplate');
+
+                    break;
+
+                }
 
                 return $this->routeTemplate($tokens, 'createTemplate');
 
@@ -29,11 +45,27 @@ class ViewsContentRouter
 
             case 'edit' :
 
+                if ($tokens['viewType'] == 'backend'){
+
+                    return $this->routeTemplate($tokens, 'editBackEndTemplate');
+
+                    break;
+
+                }
+
                 return $this->routeTemplate($tokens, 'editTemplate');
 
                 break;
 
             case 'show' :
+
+                if ($tokens['viewType'] == 'backend'){
+
+                    return $this->routeTemplate($tokens, 'showBackEndTemplate');
+
+                    break;
+
+                }
 
                 return $this->routeTemplate($tokens, 'showTemplate');
 

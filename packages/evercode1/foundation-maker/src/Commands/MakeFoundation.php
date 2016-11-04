@@ -16,6 +16,7 @@ class MakeFoundation extends Command
      */
     protected $signature = 'make:foundation
                            {ModelName}
+                           {ViewType=frontend}
                            {MasterPage=master}
                            {Slug=false}';
 

@@ -15,6 +15,7 @@ class MakeViews extends Command
      */
     protected $signature = 'make:views
                            {ModelName}
+                           {ViewType}
                            {MasterPage=master}
                            {Slug=false}';
 

@@ -132,6 +132,8 @@ class ChildViewBuilder
         $this->initialValues['parent'] =  $input['ParentName'];
 
         $this->initialValues['child'] = $input['ChildName'];
+
+        $this->initialValues['viewType'] = $input['ViewType'];
     }
 
 }

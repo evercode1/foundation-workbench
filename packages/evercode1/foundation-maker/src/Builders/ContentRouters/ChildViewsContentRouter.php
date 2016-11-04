@@ -17,11 +17,27 @@ class ChildViewsContentRouter
 
             case 'index' :
 
+                if ($tokens['viewType'] == 'backend'){
+
+                    return $this->routeTemplate($tokens, 'childIndexBackEndTemplate');
+
+                    break;
+
+                }
+
                 return $this->routeTemplate($tokens, 'indexTemplate');
 
                 break;
 
             case 'create' :
+
+                if ($tokens['viewType'] == 'backend'){
+
+                    return $this->routeTemplate($tokens, 'childCreateBackEndTemplate');
+
+                    break;
+
+                }
 
                 return $this->routeTemplate($tokens, 'childCreateTemplate');
 
@@ -29,11 +45,27 @@ class ChildViewsContentRouter
 
             case 'edit' :
 
+                if ($tokens['viewType'] == 'backend'){
+
+                    return $this->routeTemplate($tokens, 'childEditBackEndTemplate');
+
+                    break;
+
+                }
+
                 return $this->routeTemplate($tokens, 'childEditTemplate');
 
                 break;
 
             case 'show' :
+
+                if ($tokens['viewType'] == 'backend'){
+
+                    return $this->routeTemplate($tokens, 'childShowBackEndTemplate');
+
+                    break;
+
+                }
 
 
                 return $this->routeTemplate($tokens, 'childShowTemplate');

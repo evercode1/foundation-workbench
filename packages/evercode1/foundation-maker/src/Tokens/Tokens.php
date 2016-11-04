@@ -15,6 +15,7 @@ class Tokens
     public $parent;
     public $child;
     public $slug;
+    public $viewType;
     public $tokens = [];
 
     public function __construct(array $tokens)
@@ -157,6 +158,7 @@ class Tokens
                           'upperCaseModelName',
                           'useModel',
                           'useParent',
+                          'viewType',
                           'vueApiControllerMethod');
 
         return $tokens;

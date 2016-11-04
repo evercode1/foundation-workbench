@@ -18,6 +18,7 @@ class MakeChildOf extends Command
     protected $signature = 'make:child-of
                            {ParentName}
                            {ChildName}
+                           {ViewType=frontend}
                            {MasterPage=master}
                            {Slug=false}';
 

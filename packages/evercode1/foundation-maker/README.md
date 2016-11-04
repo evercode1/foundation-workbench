@@ -411,13 +411,16 @@ Now we're ready to try the **[make:foundation](#makefoundation)** command.  We�
 
 
 ```
-php artisan make:foundation Widget
+php artisan make:foundation Widget frontend
 
 
 ```
 
 
-Obviously, Widget is the name of the model we want to create. We did not supply a second argument, so it will default to ‘master,’ which is the name of our master page.  We have the option to put on a third parameter, ‘Slug’, which will include slugs in the views, but we are not doing that for this example.
+Obviously, Widget is the name of the model we want to create. ViewType of ‘fronted’, which means the views will be formatted to the frontend.  
+
+
+We did not supply a third argument, so it will default to ‘master,’ which is the name of our master page.  We have the option to put on a third parameter, ‘Slug’, which will include slugs in the views, but we are not doing that for this example.
 
 
 If you want to include the third argument, then you must also supply the second argument, se the **[make:foundation](#makefoundation)** command for details.
@@ -695,10 +698,13 @@ The make:views command has  the following arguments:
 
 
 ```
-php artisan make:views {ModelName} {MasterPageName=master} {Slug=false} 
+php artisan make:views {ModelName} {ViewType=backend} {MasterPageName=master} {Slug=false} 
 
 
 ```
+The second argument determines the type of view, frontend or backend, it defaults to ‘backend.’
+
+
 The last argument is optional and indicates whether or not you want slugs, and this should match the choice you made when you ran make:crud.
 
 
@@ -748,7 +754,7 @@ The make:foundation command has the following arguments:
 
 
 ```
-php artisan make:foundation {ModelName} {MasterPageName=master} {Slug=false}
+php artisan make:foundation {ModelName} {ViewType=frontend} {MasterPageName=master} {Slug=false}
 
 
 ```
@@ -757,7 +763,7 @@ php artisan make:foundation {ModelName} {MasterPageName=master} {Slug=false}
 The last argument is optional and indicates the slug option to show slugs on the show view.  If you want to use that, include the string ‘slug’ as the 3rd argument.
 
 
-Let's look at a typical example.  If you wanted to create a model named Widget without slugs, and you had a master page named master.blade.php, you may do the following:
+Let's look at a typical example.  If you wanted to create a model named Widget without slugs, formatted for frontend, and you had a master page named master.blade.php, you may do the following:
 
 
 ```
@@ -769,17 +775,20 @@ php artisan make:foundation Widget
 The views would extend layouts.master, since we default to a master page named ‘master.’
 
 
-If you want to give a value of ‘Slug’ for Slug, then you also need to supply the second argument for the name of the master page, like so:
+If you want to give a value of ‘Slug’ for Slug, then you also need to supply the fourth argument for the name of the master page, like so:
 
 
 ```
-php artisan make:foundation Widget master Slug
+php artisan make:foundation Widget frontend master Slug
 
 
 ```
 
 
 Adding slug will create slugs for your show view. 
+
+
+If you want to use backend
 
 
 make:foundation will create the following:
@@ -838,7 +847,7 @@ The command has the following arguments:
 
 
 ```
-php artisan make:parent-child {ParentName} {ChildName} {MasterPageName=master} {Slug=false}
+php artisan make:parent-child {ParentName} {ChildName} {ViewType=frontend} {MasterPageName=master} {Slug=false}
 
 
 ```
@@ -876,7 +885,7 @@ In cases where you have an existing model, and you want to create a foundation f
 
 
 ```
-php artisan make:child-of {ParentName} {ChildName} {MasterPageName=master} {Slug=false}
+php artisan make:child-of {ParentName} {ChildName} {ViewType=frontend} {MasterPageName=master} {Slug=false}
 
 
 ```
@@ -1264,6 +1273,19 @@ The make:social-app command is only meant to be used at the very beginning of th
 
 
 The files the make:social-app command makes are fully compatible with the make:foundation command and other FoundationMaker commands.  The Handler.php file for example, is formatted to work with the make:exception command.
+
+
+If you want to create foundations with views for the backend, supply the second argument to the make:foundation command like so:
+
+
+```
+
+
+php artisan make:foundation Widget backend master-admin Slug
+
+
+```
+‘Widget’ is the model, ‘backend’ is the ViewType, ‘master-admin’ is the master page, and ‘Slug,’ which will create slugs.
 
 
 There is no corresponding remove command for make:social-app.
