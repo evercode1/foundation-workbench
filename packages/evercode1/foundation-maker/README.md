@@ -411,16 +411,16 @@ Now we're ready to try the **[make:foundation](#makefoundation)** command.  We�
 
 
 ```
-php artisan make:foundation Widget frontend
+php artisan make:foundation Widget
 
 
 ```
 
 
-Obviously, Widget is the name of the model we want to create. ViewType of ‘fronted’, which means the views will be formatted to the frontend.  
+Obviously, Widget is the name of the model we want to create. 
 
 
-We did not supply a third argument, so it will default to ‘master,’ which is the name of our master page.  We have the option to put on a third parameter, ‘Slug’, which will include slugs in the views, but we are not doing that for this example.
+We did not supply a second or third argument, so it will default to ‘frontend’ for view type and ‘master,’ which is the name of our master page.  We also have the option to put on a fourth parameter, ‘Slug’, which will include slugs in the views, but we are not doing that for this example.
 
 
 If you want to include the third argument, then you must also supply the second argument, se the **[make:foundation](#makefoundation)** command for details.
@@ -1056,7 +1056,7 @@ php artisan make:social-app {DomainName} {AppName=demo} {MasterPageName=master}
 ```
 
 
-If you do not supply the last two arguments, they will default to ‘demo’ and ‘master’ respectively.
+If you do not supply the last two arguments, they will default to ‘demo’ and ‘master’ respectively.  Since many of FoundationMaker’s commands use a default of MasterPageName=master, use ‘master’ as the name for your master page, unless you have a good reason for doing otherwise.
 
 
 So if you ran the following:
@@ -1698,3 +1698,4 @@ The MIT License (MIT). Please see [License File](LICENSE.md) for more informatio
 [link-packagist]: https://packagist.org/packages/evercode1/foundation-maker
 [link-downloads]: https://packagist.org/packages/evercode1/foundation-maker/stats
 [link-author]: https://github.com/evercode1
+
