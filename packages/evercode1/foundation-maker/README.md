@@ -760,7 +760,7 @@ php artisan make:foundation {ModelName} {ViewType=frontend} {MasterPageName=mast
 ```
 
 
-The last argument is optional and indicates the slug option to show slugs on the show view.  If you want to use that, include the string ‘slug’ as the 3rd argument.
+The last argument is optional and indicates the slug option to show slugs on the show view.  If you want to use that, include the string ‘slug’ as the 4th argument.
 
 
 Let's look at a typical example.  If you wanted to create a model named Widget without slugs, formatted for frontend, and you had a master page named master.blade.php, you may do the following:
