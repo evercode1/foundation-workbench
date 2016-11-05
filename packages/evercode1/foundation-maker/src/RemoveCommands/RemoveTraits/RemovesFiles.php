@@ -198,8 +198,7 @@ trait RemovesFiles
             file_put_contents($file, $updatedContent);
 
         }
-
-        $this->cleanUp();
+        
 
         return true;
 
@@ -209,25 +208,7 @@ trait RemovesFiles
     private function cleanUp()
     {
 
-        switch ($this->commandType){
 
-            case 'remove:crud' :
-
-                $this->removeApiControllerIfEmpty();
-                break;
-
-            case 'remove:foundation' :
-
-                $this->removeApiControllerIfEmpty();
-                break;
-
-            default :
-
-                return true;
-
-
-
-        }
 
 
 
