@@ -198,7 +198,7 @@ trait RemovesFiles
             file_put_contents($file, $updatedContent);
 
         }
-        
+
 
         return true;
 
