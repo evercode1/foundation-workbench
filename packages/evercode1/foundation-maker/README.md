@@ -4,7 +4,7 @@
 [![Software License][ico-license]](LICENSE.md)
 [![Total Downloads][ico-downloads]][link-downloads]
 
-**FoundationMaker** is a code generator for use with the Laravel PHP framework (5.3 and up) Artisan command line tool.
+**FoundationMaker** is a code generator for use with the Laravel PHP framework (5.3) Artisan command line tool.  FoundationMaker has not been developed for Laravel 5.4 as of yet.
 
 FoundationMaker adds 19 new artisan commands, providing ready-made templates for CRUD generation, Views and Datagrids, with ajax-powered search, column sorts and pagination.   You can create, migrate and test a foundation of code with crud and views in under a minute.  You can also make your own custom templates and tokens for use with FoundationMaker.  There is also a command to make an instant social app.
 
@@ -1204,7 +1204,7 @@ Route::resource('alpha-widget', 'AlphaWidgetController');
 
 I hope you enjoy this plugin and find it useful.  I don’t have a donate button, but If you would like
 to support my work and learn more about Laravel, you can do so by buying one of
-my books, **[Laravel 5.3 For Beginners](https://leanpub.com/laravel-5-3-for-beginners)**,
+my books, **[Laravel 5.4 For Beginners](https://leanpub.com/laravel-5-4-for-beginners)**,
 I really appreciate it.
 
 ## Change log
